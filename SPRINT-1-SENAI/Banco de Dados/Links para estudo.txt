@@ -1,3 +1,4 @@
 Links utilizados para estudo
 
 Modelagem de banco de dados = https://www.devmedia.com.br/mer-e-der-modelagem-de-bancos-de-dados/14332 
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento
