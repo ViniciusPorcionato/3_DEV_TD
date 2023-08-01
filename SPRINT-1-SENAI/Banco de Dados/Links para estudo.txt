@@ -1,4 +1,8 @@
 Links utilizados para estudo
 
 Modelagem de banco de dados = https://www.devmedia.com.br/mer-e-der-modelagem-de-bancos-de-dados/14332 
-https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento\
+
+Fazer cladograma / FLuxograma / Modelagem de Banco de Dados = https://app.diagrams.net/ draw.io
+
+Baixar o SQL Server = https://learn.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&authuser=0

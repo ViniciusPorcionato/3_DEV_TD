@@ -1,0 +1,2 @@
+Tipos de Dados = https://learn.microsoft.com/pt-br/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver16&authuser=0
+Inserir, atualizar e excluir registros de uma tabela usando o Access SQL = https://learn.microsoft.com/pt-br/office/vba/access/concepts/structured-query-language/insert-update-and-delete-records-from-a-table-using-access-sql?authuser=0
