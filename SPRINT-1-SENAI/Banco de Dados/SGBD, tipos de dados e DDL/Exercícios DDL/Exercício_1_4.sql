@@ -1,0 +1,47 @@
+--Criar BD
+CREATE DATABASE Exercicio_1_4
+
+USE Exercicio_1_4
+
+CREATE TABLE Artistas(
+IdArtista INT PRIMARY KEY IDENTITY,
+NomeArtista VARCHAR(30)
+
+);
+
+CREATE TABLE Usuarios(
+
+IdUsuario INT PRIMARY KEY IDENTITY,
+NomeUsuario VARCHAR(30) NOT NULL,
+Email VARCHAR(50) NOT NULL,
+Senha VARCHAR(50) NOT NULL,
+Permissão BIT NOT NULL
+
+);
+
+CREATE TABLE Estilos(
+
+IdEstilo INT PRIMARY KEY IDENTITY,
+NomeEstilo VARCHAR(50) NOT NULL
+
+);
+
+CREATE TABLE Albuns(
+
+IdAlbum INT PRIMARY KEY IDENTITY,
+IdArtista INT FOREIGN KEY REFERENCES Artistas(IdArtista) NOT NULL,
+Titulo VARCHAR(50) NOT NULL,
+DataLancamento DATE NOT NULL,
+Localizacao GEOGRAPHY NOT NULL,
+QtdMinutos VARCHAR(30) NOT NULL,
+Ativo BIT NOT NULL
+
+
+);
+
+CREATE TABLE AlbunsEstilos(
+
+IdAlbum INT FOREIGN KEY REFERENCES Albuns(IdAlbum) NOT NULL,
+IdAEstilo INT FOREIGN KEY REFERENCES Estilos(IdEstilo) NOT NULL
+
+);

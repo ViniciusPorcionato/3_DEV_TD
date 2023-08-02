@@ -6,3 +6,6 @@ https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento\
 Fazer cladograma / FLuxograma / Modelagem de Banco de Dados = https://app.diagrams.net/ draw.io
 
 Baixar o SQL Server = https://learn.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&authuser=0
+
+Normalização do Banco de Dados = https://www.alura.com.br/artigos/normalizacao-banco-de-dados-estrutura?authuser=0
+Normalização do Banco de Dados = https://medium.com/@diegobmachado/normaliza%C3%A7%C3%A3o-em-banco-de-dados-5647cdf84a12
