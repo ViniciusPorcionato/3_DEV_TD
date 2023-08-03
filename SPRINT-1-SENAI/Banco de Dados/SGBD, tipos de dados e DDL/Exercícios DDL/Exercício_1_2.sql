@@ -1,5 +1,5 @@
 --CRIAR BD
-CREATE DATABASE Exercício_1_2
+CREATE DATABASE Exercicio_1_2
 
 --USAR BD
 USE Exercicio_1_2
@@ -51,7 +51,9 @@ CREATE TABLE Aluguel(
 IdAluguel INT PRIMARY KEY IDENTITY,
 IdVeiculo INT FOREIGN KEY REFERENCES Veiculos(IdVeiculo) NOT NULL,
 IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente) NOT NULL,
-Protocolo VARCHAR(20)
+Protocolo VARCHAR(20),
+DataRetirada DATE,
+DataEntrega DATE
 
 );
 

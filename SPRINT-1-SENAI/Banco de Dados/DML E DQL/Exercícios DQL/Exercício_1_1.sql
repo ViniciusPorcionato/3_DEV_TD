@@ -14,4 +14,18 @@ ORDER BY Nome DESC
 
 INSERT INTO Pessoa (Nome, CNH) VALUES('Gustavo','7521489632'),('Eduardo','9637415820'),('Tiago','3478512048');
 
+INSERT INTO Telefone(IdPessoa,NumeroTelefone) VALUES(3,'11587422685'),(4,'11254782365'),(5,'111472853698')
+
+INSERT INTO Email(IdPessoa, Email) VALUES(3,'gustavo@email'), (4,'edu@email'),(5,'tigas@email')
+
 SELECT * FROM Pessoa;
+
+
+
+--SCRIPT USANDO JOIN
+
+SELECT Nome,CNH,NumeroTelefone, Email
+FROM Pessoa
+INNER JOIN Telefone ON Pessoa.IdPessoa = Telefone.IdPessoa
+INNER JOIN Email ON Pessoa.IdPessoa = Email.IdPessoa
+ORDER BY Nome DESC
