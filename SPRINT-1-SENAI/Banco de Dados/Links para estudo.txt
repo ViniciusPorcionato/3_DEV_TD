@@ -9,3 +9,5 @@ Baixar o SQL Server = https://learn.microsoft.com/pt-br/sql/ssms/download-sql-se
 
 Normalização do Banco de Dados = https://www.alura.com.br/artigos/normalizacao-banco-de-dados-estrutura?authuser=0
 Normalização do Banco de Dados = https://medium.com/@diegobmachado/normaliza%C3%A7%C3%A3o-em-banco-de-dados-5647cdf84a12
+
+ALTER, UPDATE E DELETE TABLE AND COLUMN = http://www.bosontreinamentos.com.br/sql-com-sql-server/7-t-sql-alter-e-drop-table-alterar-e-excluir-tabelas-e-colunas-sql-server/
