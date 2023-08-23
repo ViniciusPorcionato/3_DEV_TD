@@ -51,7 +51,7 @@ namespace webapi.filmes.tarde.Repositories
             //cria uma lista de generos onde sera armazenados os generos
             List<GeneroDomain> listaGeneros = new List<GeneroDomain>();
 
-            //declara a SQLConnection pasando a string de conexao como parametro
+            //declara a SQLConnection passando a string de conexao como parametro
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //declara a instrucao a ser executada
