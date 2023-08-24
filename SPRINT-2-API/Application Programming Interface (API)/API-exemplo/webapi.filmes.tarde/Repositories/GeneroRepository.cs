@@ -32,9 +32,29 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// cadastrar um novo genero
+        /// </summary>
+        /// <param name="novoGenero">objeto com as informacoes que serao cadastradas</param>
         public void Cadastrar(GeneroDomain novoGenero)
         {
-            throw new NotImplementedException();
+            //declara a SQLConnection passando a string de conexao como parametro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                //declara a query que sera executada                       ----concatenação-----
+                string queryInsert = "INSERT INTO Genero(Nome) VALUES (' " + novoGenero.Nome + " ')";
+
+                //delcara a SQLCommand passando a query que sera executada na conexao
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    //Abre a conexao com o bando de dados
+                    con.Open();
+
+                    //Executa a query
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
         }
 
         public void Deletar(int id)

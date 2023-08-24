@@ -25,4 +25,5 @@ INSERT INTO Filme(IdGenero,Titulo)
 VALUES(1,'Invocação do Mal'),(3,'Gente Grande')
 
 SELECT * FROM Genero WHERE IdGenero = 1
+SELECT * FROM Genero
 

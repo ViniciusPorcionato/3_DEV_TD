@@ -39,7 +39,7 @@ namespace webapi.filmes.tarde.Controller
 
 
         /// <summary>
-        /// Endpoint que acessa o metado de listar os generos
+        /// Endpoint que acessa o método de listar os generos
         /// </summary>
         /// <returns>Lista de generos com status code</returns>
         [HttpGet]
@@ -62,6 +62,33 @@ namespace webapi.filmes.tarde.Controller
                 throw;
             }
         
+        }
+
+        /// <summary>
+        /// Endpoint para o método cadastrar genero
+        /// </summary>
+        /// <param name="novoGenero">objeto recebid na aquisição</param>
+        /// <returns>status code</returns>
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+
+            try
+            {
+                //cria uma objeto para cadastrar novos generos
+                _generoRepository.Cadastrar(novoGenero);
+
+                //retorna os status code 200 ok e a lista de generos no formato JSON
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+                //retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+
+                throw;
+            }
+
         }
 
 
