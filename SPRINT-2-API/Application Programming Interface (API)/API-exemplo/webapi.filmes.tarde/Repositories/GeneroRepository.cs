@@ -27,9 +27,22 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
-        public GeneroDomain BuscarPorId(int id)
+        public void BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+
+                string querySearch = $"SELECT Nome FROM Genero WHERE IdGenero = {id}";
+
+                using (SqlCommand cmd = new SqlCommand(querySearch, con))
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+
         }
 
         /// <summary>
@@ -41,12 +54,15 @@ namespace webapi.filmes.tarde.Repositories
             //declara a SQLConnection passando a string de conexao como parametro
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                //declara a query que sera executada                       ----concatenação-----
-                string queryInsert = "INSERT INTO Genero(Nome) VALUES (' " + novoGenero.Nome + " ')";
+                //declara a query que sera executada                     
+                string queryInsert = "INSERT INTO Genero(Nome) VALUES (@nomeGenero)";
 
                 //delcara a SQLCommand passando a query que sera executada na conexao
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
+
+                    cmd.Parameters.AddWithValue("nomeGenero", novoGenero.Nome);
+
                     //Abre a conexao com o bando de dados
                     con.Open();
 
@@ -59,7 +75,22 @@ namespace webapi.filmes.tarde.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+
+                string queryDelete = $"DELETE FROM Genero WHERE IdGenero LIKE {id}";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+
+            }
         }
 
         /// <summary>
@@ -112,6 +143,11 @@ namespace webapi.filmes.tarde.Repositories
             //retornando a lista de generos
             return listaGeneros;
 
+        }
+
+        GeneroDomain IGeneroRepository.BuscarPorId(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

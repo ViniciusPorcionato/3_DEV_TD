@@ -14,7 +14,9 @@ CREATE TABLE Filme
 	Titulo VARCHAR(50)
 )
 
-
+INSERT INTO Genero(Nome)
+VALUES ('Joana D Arc')
+SELECT * FROM Genero
 
 INSERT INTO Genero(Nome)
 VALUES ('Terror'),('Romance'),('Comédia'),('Drama')
