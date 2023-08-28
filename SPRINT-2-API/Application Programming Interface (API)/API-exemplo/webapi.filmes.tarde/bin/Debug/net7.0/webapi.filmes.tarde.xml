@@ -34,6 +34,35 @@
             <param name="novoGenero">objeto recebid na aquisição</param>
             <returns>status code</returns>
         </member>
+        <member name="M:webapi.filmes.tarde.Controller.GeneroController.Put(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Endpoint para o método atualizar genero
+            </summary>
+            <param name="genero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controller.GeneroController.Delete(System.Int32)">
+            <summary>
+            Endpoint para o método deletar genero por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controller.GeneroController.GetById(System.Int32)">
+            <summary>
+            Endpoint para o método buscar genero por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controller.GeneroController.PutById(System.Int32,webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Endpoint para o método atualizar genero por id
+            </summary>
+            <param name="id"></param>
+            <param name="genero"></param>
+            <returns></returns>
+        </member>
         <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
             <summary>
             Classe que representa a entidade(tabela) Filme
@@ -143,6 +172,13 @@
                 User id = Nome do usuario
                 Pwd = Senha
             </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            buscar genero por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.Cadastrar(webapi.filmes.tarde.Domains.GeneroDomain)">
             <summary>

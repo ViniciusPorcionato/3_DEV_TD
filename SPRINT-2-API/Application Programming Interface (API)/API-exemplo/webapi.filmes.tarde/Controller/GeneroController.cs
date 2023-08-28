@@ -42,7 +42,7 @@ namespace webapi.filmes.tarde.Controller
         /// Endpoint que acessa o método de listar os generos
         /// </summary>
         /// <returns>Lista de generos com status code</returns>
-        [HttpGet]
+        [HttpGet("ListarGeneros")]
         public IActionResult Get(){
 
             try
@@ -69,7 +69,7 @@ namespace webapi.filmes.tarde.Controller
         /// </summary>
         /// <param name="novoGenero">objeto recebid na aquisição</param>
         /// <returns>status code</returns>
-        [HttpPost]
+        [HttpPost("Cadastrar")]
         public IActionResult Post(GeneroDomain novoGenero)
         {
 
@@ -91,14 +91,93 @@ namespace webapi.filmes.tarde.Controller
 
         }
 
-        [HttpDelete("{id}")]
+        /// <summary>
+        /// Endpoint para o método atualizar genero
+        /// </summary>
+        /// <param name="genero"></param>
+        /// <returns></returns>
+        [HttpPut("Atualizar")]
+        public IActionResult Put(GeneroDomain genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdCorpo(genero);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Endpoint para o método deletar genero por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("Deletar/{id}")]
         public IActionResult Delete(int id)
         {
             try
             {
                 _generoRepository.Deletar(id);
+                //retorna os status code 200 ok e a lista de generos no formato JSON
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                //retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+                throw;
+            }
 
-                return StatusCode(200);
+        }
+
+        /// <summary>
+        /// Endpoint para o método buscar genero por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("BuscarPorId/{id}")]
+        public IActionResult GetById(int id)
+        {
+
+            try
+            {
+
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
+
+                if (generoBuscado == null)
+                {
+                    return NotFound("O Genero buscado não foi encontrado !");
+                }
+
+                return StatusCode(200, generoBuscado);
+
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+                throw;
+            }
+
+        }
+
+        /// <summary>
+        /// Endpoint para o método atualizar genero por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="genero"></param>
+        /// <returns></returns>
+        [HttpPut("AtualizarPorId/{id}")]
+        public IActionResult PutById(int id, GeneroDomain genero)
+        {
+
+            try
+            {
+                _generoRepository.AtualizarIdUrl(id, genero);
+                return StatusCode(204);
             }
             catch (Exception erro)
             {

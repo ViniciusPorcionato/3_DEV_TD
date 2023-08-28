@@ -19,30 +19,82 @@ namespace webapi.filmes.tarde.Repositories
         private string StringConexao = "Data Source = NOTE04-S15; Initial Catalog = Filmes_TD; User Id = sa; Pwd = Senai@134";
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUPDATE = $"UPDATE Genero SET Nome = @NovoNome WHERE IdGenero = {genero.IdGenero}";
+
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(queryUPDATE, con))
+                {
+                    cmd.Parameters.AddWithValue("@NovoNome", genero.Nome);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUPDATE = "UPDATE Genero SET Nome = @NovoNome WHERE  IdGenero = @IdGenero";
+
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(queryUPDATE, con))
+                {
+                    cmd.Parameters.AddWithValue("@NovoNome", genero.Nome);
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
         }
 
-        public void BuscarPorId(int id)
+
+        /// <summary>
+        /// buscar genero por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public GeneroDomain BuscarPorId(int id)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
+                string querySelectById = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = @IdGenero";
 
-                string querySearch = $"SELECT Nome FROM Genero WHERE IdGenero = {id}";
+                SqlDataReader rdr;
 
-                using (SqlCommand cmd = new SqlCommand(querySearch, con))
+                using (SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
                     con.Open();
+                    rdr = cmd.ExecuteReader();
 
-                    cmd.ExecuteNonQuery();
+                    if (rdr.Read())
+                    {
+                        GeneroDomain generoBuscado = new GeneroDomain
+                        {
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+                            Nome = rdr["Nome"].ToString()
+                        };
+                        return generoBuscado;
+                    }
+
+                    return null;
                 }
 
             }
+            //**********OUTRA FORMA**********
+            //List<GeneroDomain> listaGenero = ListarTodos();
+            //GeneroDomain generoBuscado = new GeneroDomain();
 
+            //foreach (GeneroDomain genero in listaGenero)
+            //{
+            //    if (genero.IdGenero == id) generoBuscado = genero;
+            //    {
+            //    }
+            //}
+            //return generoBuscado;
         }
 
         /// <summary>
@@ -78,18 +130,17 @@ namespace webapi.filmes.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
 
-                string queryDelete = $"DELETE FROM Genero WHERE IdGenero LIKE {id}";
+                string queryDelete = $"DELETE FROM Genero WHERE IdGenero =  (@IdGenero)";
 
                 using (SqlCommand cmd = new SqlCommand(queryDelete, con))
                 {
 
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+
                     con.Open();
 
                     cmd.ExecuteNonQuery();
-
-
                 }
-
             }
         }
 
@@ -145,9 +196,6 @@ namespace webapi.filmes.tarde.Repositories
 
         }
 
-        GeneroDomain IGeneroRepository.BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
