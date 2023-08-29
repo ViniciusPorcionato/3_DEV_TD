@@ -184,7 +184,7 @@ namespace webapi.filmes.tarde.Repositories
 
                         };
 
-                        //adiciona o objeto criado dentro da lista
+                             
                         listaGeneros.Add(genero);
 
                     }

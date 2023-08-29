@@ -24,7 +24,8 @@ SELECT * FROM Genero
 
 
 INSERT INTO Filme(IdGenero,Titulo)
-VALUES(1,'Invocação do Mal'),(3,'Gente Grande')
+VALUES(1,'IT: A coisa'),(5,'O Pior Vizinho do Mundo'),(5,'TOP GUN : Maverick'),(4,'John Wick 4')
+SELECT * FROM Filme
 
 SELECT * FROM Genero WHERE IdGenero = 1
 SELECT * FROM Genero

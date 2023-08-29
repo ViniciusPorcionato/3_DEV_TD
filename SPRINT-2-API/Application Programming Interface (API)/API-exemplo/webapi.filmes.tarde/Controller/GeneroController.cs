@@ -43,7 +43,8 @@ namespace webapi.filmes.tarde.Controller
         /// </summary>
         /// <returns>Lista de generos com status code</returns>
         [HttpGet("ListarGeneros")]
-        public IActionResult Get(){
+        public IActionResult Get()
+        {
 
             try
             {
@@ -61,7 +62,7 @@ namespace webapi.filmes.tarde.Controller
 
                 throw;
             }
-        
+
         }
 
         /// <summary>
@@ -97,12 +98,30 @@ namespace webapi.filmes.tarde.Controller
         /// <param name="genero"></param>
         /// <returns></returns>
         [HttpPut("Atualizar")]
-        public IActionResult Put(GeneroDomain genero)
+        public IActionResult PutIdBody(GeneroDomain genero)
         {
             try
             {
-                _generoRepository.AtualizarIdCorpo(genero);
-                return StatusCode(204);
+
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(genero.IdGenero);
+
+                if (generoBuscado != null)
+                {
+                    try
+                    {
+                        _generoRepository.AtualizarIdCorpo(genero);
+
+                        return StatusCode(200);
+                    }
+                    catch (Exception erro)
+                    {
+                        return BadRequest(erro.Message);
+                        throw;
+                    }
+                }
+
+                return NotFound("Genero não encontrado !");
+
             }
             catch (Exception erro)
             {
