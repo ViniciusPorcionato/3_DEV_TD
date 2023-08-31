@@ -31,6 +31,28 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.filmes.tarde.Controller.FilmeController.Post(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Endpoint para o cadastrar um novo filme
+            </summary>
+            <param name="novoFilme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controller.FilmeController.PutIdBody(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Endpoint para o método atualizar filme pelo corpo
+            </summary>
+            <param name="filme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controller.FilmeController.PutById(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Endpoint para o método atualizar o filme pela URL
+            </summary>
+            <param name="id"></param>
+            <param name="filme"></param>
+            <returns></returns>
+        </member>
         <member name="T:webapi.filmes.tarde.Controller.GeneroController">
             <summary>
             Define que a rota de requisicao sera no seguinte formato
@@ -101,6 +123,26 @@
             </summary>
         </member>
         <member name="P:webapi.filmes.tarde.Domains.GeneroDomain.Nome">
+            <summary>
+            Data Annotation
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.tarde.Domains.UsuarioDomain">
+            <summary>
+            Classe que representa a entidade usuario
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Email">
+            <summary>
+            Data Annotation
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Senha">
+            <summary>
+            Data Annotation
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Permissao">
             <summary>
             Data Annotation
             </summary>
@@ -188,6 +230,14 @@
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
         </member>
+        <member name="M:webapi.filmes.tarde.Interface.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            metodo que busca um usuario por email e senha
+            </summary>
+            <param name="email">email usuario</param>
+            <param name="senha">senha usuario</param>
+            <returns>objeto que foi buscado</returns>
+        </member>
         <member name="F:webapi.filmes.tarde.Repositories.FilmeRepository.StringConexao">
             <summary>
             String de conexao com o BD, passando nome do servidor, nome do BD, id do user e senha do BD
@@ -236,6 +286,11 @@
             Metodo para listar todos os objetos do tipo genero
             </summary>
             <returns>Lista de objetos do tipo de genero</returns>
+        </member>
+        <member name="F:webapi.filmes.tarde.Repositories.UsuarioRepository.StringConexao">
+            <summary>
+            string de conexao
+            </summary>
         </member>
     </members>
 </doc>

@@ -99,7 +99,11 @@ namespace webapi.filmes.tarde.Controller
             }
         }
 
-
+        /// <summary>
+        /// Endpoint para o cadastrar um novo filme
+        /// </summary>
+        /// <param name="novoFilme"></param>
+        /// <returns></returns>
         [HttpPost("Cadastrar")]
         public IActionResult Post(FilmeDomain novoFilme)
         {
@@ -116,6 +120,61 @@ namespace webapi.filmes.tarde.Controller
             }
         }
 
+        /// <summary>
+        /// Endpoint para o método atualizar filme pelo corpo
+        /// </summary>
+        /// <param name="filme"></param>
+        /// <returns></returns>
+        [HttpPut("Atualizar")]
+        public IActionResult PutIdBody(FilmeDomain filme)
+        {
+            try
+            {
+                FilmeDomain filmeBuscado = _filmeRepository.BuscarPorId(filme.IdFilme);
+
+                if (filmeBuscado != null)
+                {
+                    try
+                    {
+                        _filmeRepository.AtualizarIdCorpo(filme);
+                        return StatusCode(200);
+                    }
+                    catch (Exception erro)
+                    {
+                        return BadRequest(erro.Message);
+                        throw;
+                    }
+                }
+                return NotFound("Filme não encontrado !");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Endpoint para o método atualizar o filme pela URL
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="filme"></param>
+        /// <returns></returns>
+        [HttpPut("AtualizarPorId/{id}")]
+        public IActionResult PutById(int id, FilmeDomain filme)
+        {
+            try
+            {
+                _filmeRepository.AtualizarIdUrl(id, filme);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+                throw;
+            }
+        }
+        
     }
 
 

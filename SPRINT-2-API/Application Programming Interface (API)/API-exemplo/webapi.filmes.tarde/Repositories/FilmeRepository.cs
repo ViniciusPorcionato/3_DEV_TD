@@ -21,12 +21,36 @@ namespace webapi.filmes.tarde.Repositories
 
         public void AtualizarIdCorpo(FilmeDomain filme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdate = $"UPDATE Filme SET IdGenero = @novoGenero, Titulo = @novoTitulo WHERE IdFilme = {filme.IdFilme}";
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                {
+                    cmd.Parameters.AddWithValue("@novoGenero", filme.IdGenero);
+                    cmd.Parameters.AddWithValue("@novoTitulo", filme.Titulo);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void AtualizarIdUrl(int id, FilmeDomain filme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateById = "UPDATE Filme SET IdGenero = @novoGenero , Titulo = @novoTitulo WHERE IdFilme = @IdFilme";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateById, con))
+                {
+                    cmd.Parameters.AddWithValue("@novoGenero", filme.IdGenero);
+                    cmd.Parameters.AddWithValue("@novoTitulo", filme.Titulo);
+                    cmd.Parameters.AddWithValue("@IdFilme", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public FilmeDomain BuscarPorId(int id)
@@ -111,7 +135,9 @@ namespace webapi.filmes.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //declara a instrucao a ser executada
-                string querySelectAll = "SELECT IdFilme, IdGenero , Titulo FROM Filme";
+                string querySelectAll = "SELECT Filme.IdFilme, Genero.IdGenero, Genero.Nome, Filme.Titulo FROM Filme INNER JOIN Genero ON Filme.IdGenero = Genero.IdGenero";
+                //string querySelectAll = "SELECT IdFilme, IdGenero, Titulo FROM Filme";
+
 
                 //Abre a conexao com o bando de dados
                 con.Open();
@@ -131,11 +157,19 @@ namespace webapi.filmes.tarde.Repositories
                         FilmeDomain filme = new FilmeDomain()
                         {
                             //Atribui a propriedade IdFilme o valor da primeira coluna da tabela
-                            IdFilme = Convert.ToInt32(rdr[0]),
-                            //Atribui a propriedade IdGenero o valor da segunda coluna da tabela
-                            IdGenero = Convert.ToInt32(rdr[1]),
-                            //Atribui a propriedade Titulo o valor da coluna Titulo
-                            Titulo = (rdr["Titulo"]).ToString(),
+                            IdFilme = Convert.ToInt32(rdr["IdFilme"]),
+                            IdGenero= Convert.ToInt32(rdr["IdGenero"]),
+
+                            Genero = new GeneroDomain() { 
+                            
+                               IdGenero = Convert.ToInt32(rdr["IdGenero"]),  
+                               Nome = rdr["Nome"].ToString(),
+                            },
+                            Titulo = rdr["Titulo"].ToString(),
+
+                            //IdFilme = Convert.ToInt32(rdr[0]),
+                            //IdGenero= Convert.ToInt32(rdr[1]),
+                            //Titulo = rdr["Titulo"].ToString(),
 
                         };
                         //adiciona o objeto criado dentro da lista
