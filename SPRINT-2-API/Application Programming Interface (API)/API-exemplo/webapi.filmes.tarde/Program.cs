@@ -6,6 +6,16 @@ var builder = WebApplication.CreateBuilder(args);
 //adiciona o serviço de controllers
 builder.Services.AddControllers();
 
+//Adiciona serviço de autenticação JWT Bearer
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
+})
+
+//Define os parametros de validação do token
+.AddJwtBearer(options => { })
+
 //Adicione o gerador do Swagger à coleção de serviços
 builder.Services.AddSwaggerGen(options =>
 {

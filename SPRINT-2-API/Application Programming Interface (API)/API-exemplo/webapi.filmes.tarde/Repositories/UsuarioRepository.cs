@@ -14,7 +14,7 @@ namespace webapi.filmes.tarde.Repositories
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string querySelect = "SELECT IdUsuario, Email, Permissao FROM Usuario WHERE Email = @Email END Senha = @Senha";
+                string querySelect = "SELECT IdUsuario, Email, Permissao FROM Usuario WHERE Email = @Email AND Senha = @Senha";
 
                 con.Open();
 
