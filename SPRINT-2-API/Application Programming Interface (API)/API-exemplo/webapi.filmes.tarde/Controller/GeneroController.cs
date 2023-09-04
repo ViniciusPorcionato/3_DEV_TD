@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interface;
@@ -71,6 +72,8 @@ namespace webapi.filmes.tarde.Controller
         /// <param name="novoGenero">objeto recebid na aquisição</param>
         /// <returns>status code</returns>
         [HttpPost("Cadastrar")]
+        //Data Annotation : precisa estar logado para acessar a rota
+        [Authorize]
         public IActionResult Post(GeneroDomain novoGenero)
         {
 
@@ -98,6 +101,8 @@ namespace webapi.filmes.tarde.Controller
         /// <param name="genero"></param>
         /// <returns></returns>
         [HttpPut("Atualizar")]
+        //Data Annotation : precisa estar logado para acessar a rota
+        [Authorize]
         public IActionResult PutIdBody(GeneroDomain genero)
         {
             try
@@ -136,6 +141,8 @@ namespace webapi.filmes.tarde.Controller
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("Deletar/{id}")]
+        //Data Annotation : precisa estar logado para acessar a rota
+        [Authorize]
         public IActionResult Delete(int id)
         {
             try
@@ -190,6 +197,8 @@ namespace webapi.filmes.tarde.Controller
         /// <param name="genero"></param>
         /// <returns></returns>
         [HttpPut("AtualizarPorId/{id}")]
+        //Data Annotation : precisa estar logado para acessar a rota
+        [Authorize]
         public IActionResult PutById(int id, GeneroDomain genero)
         {
 
