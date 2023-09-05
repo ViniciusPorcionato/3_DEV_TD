@@ -73,7 +73,7 @@ namespace webapi.filmes.tarde.Controller
         /// <returns>status code</returns>
         [HttpPost("Cadastrar")]
         //Data Annotation : precisa estar logado para acessar a rota
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(GeneroDomain novoGenero)
         {
 
@@ -102,7 +102,7 @@ namespace webapi.filmes.tarde.Controller
         /// <returns></returns>
         [HttpPut("Atualizar")]
         //Data Annotation : precisa estar logado para acessar a rota
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         public IActionResult PutIdBody(GeneroDomain genero)
         {
             try
@@ -142,7 +142,7 @@ namespace webapi.filmes.tarde.Controller
         /// <returns></returns>
         [HttpDelete("Deletar/{id}")]
         //Data Annotation : precisa estar logado para acessar a rota
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(int id)
         {
             try
@@ -198,7 +198,7 @@ namespace webapi.filmes.tarde.Controller
         /// <returns></returns>
         [HttpPut("AtualizarPorId/{id}")]
         //Data Annotation : precisa estar logado para acessar a rota
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         public IActionResult PutById(int id, GeneroDomain genero)
         {
 
