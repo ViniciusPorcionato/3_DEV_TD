@@ -1,4 +1,4 @@
-USE inlock_games;
+USE inlock_games_td;
 GO
 
 INSERT INTO Estudio(Nome)

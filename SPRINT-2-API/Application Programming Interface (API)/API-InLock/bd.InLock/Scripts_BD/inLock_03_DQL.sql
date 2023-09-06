@@ -1,4 +1,4 @@
-USE inlock_games;
+USE inlock_games_td;
 
 SELECT * FROM TiposUsuario;
 
@@ -22,9 +22,15 @@ SELECT * FROM Jogo WHERE IdJogo = 4;
 
 SELECT * FROM Estudio WHERE IdEstudio = 2;
 
-SELECT Estudio.IdEstudio,Estudio.Nome,Jogo.Nome FROM Estudio
+SELECT Jogo.IdJogo,Jogo.Nome AS NomeJogo,Estudio.IdEstudio,Estudio.Nome AS NomeEstudio FROM Estudio
 LEFT JOIN Jogo
 ON Estudio.IdEstudio = Jogo.IdEstudio;
 
+SELECT Jogo.IdJogo,Jogo.Nome AS NomeJogo,Jogo.DataLancamento,Jogo.Descricao,Estudio.Nome AS NomeEstudio, Jogo.Valor FROM Estudio
+INNER JOIN Jogo
+ON Estudio.IdEstudio = Jogo.IdEstudio;
+
+SELECT Usuario.IdUsuario,Usuario.IdTipoUsuario,TiposUsuario.Titulo, Usuario.Email FROM Usuario
+INNER JOIN TiposUsuario ON TiposUsuario.IdTipoUsuario = Usuario.IdTipoUsuario
 
 

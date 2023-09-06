@@ -20,7 +20,7 @@ namespace senai.inlock.webApi.Domain
 
 
         [Required(ErrorMessage = "Valor do jogo obrigatório !")]
-        public float Valor { get; set; }
+        public Decimal Valor { get; set; }
 
 
         //instância de EstudioDomain

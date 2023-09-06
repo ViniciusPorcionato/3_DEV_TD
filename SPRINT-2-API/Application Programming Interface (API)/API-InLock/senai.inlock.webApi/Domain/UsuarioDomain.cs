@@ -2,7 +2,7 @@
 
 namespace senai.inlock.webApi.Domain
 {
-    public class Usuario
+    public class UsuarioDomain
     {
 
         public int IdUsuario { get; set; }

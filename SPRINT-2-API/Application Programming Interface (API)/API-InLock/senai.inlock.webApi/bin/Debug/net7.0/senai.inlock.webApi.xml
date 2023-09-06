@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.inlock.webApi</name>
+    </assembly>
+    <members>
+        <member name="M:senai.inlock.webApi.Controller.EstudioController.Get">
+            <summary>
+            Endpoint criado para exibir os estúdios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.EstudioController.Delete(System.Int32)">
+            <summary>
+            Endpoint criado para deletar algum estúdio por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.EstudioController.Post(senai.inlock.webApi.Domain.EstudioDomain)">
+            <summary>
+            Endpoint criado para cadastrar um novo estúdio
+            </summary>
+            <param name="novoEstudio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.JogoController.Get">
+            <summary>
+            Endpoint criado para exibir todos os jogos cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.JogoController.Delete(System.Int32)">
+            <summary>
+            Endpoint criado para deletar algum jogo por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.JogoController.Post(senai.inlock.webApi.Domain.JogoDomain)">
+            <summary>
+            Endpoint criado para cadastrar um novo jogo
+            </summary>
+            <param name="novoJogo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.TipoUsuarioController.Get">
+            <summary>
+            Endpoint criado para exibir os tipos de usuários
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.UsuarioController.Login(senai.inlock.webApi.Domain.UsuarioDomain)">
+            <summary>
+            Endpoint criado para logar um usuário
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IEstudioRepository.Cadastrar(senai.inlock.webApi.Domain.EstudioDomain)">
+            <summary>
+            Cadastrar um novo estudio
+            </summary>
+            <param name="novoEstudio"></param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IEstudioRepository.ListarTodos">
+            <summary>
+            Retornar todos os estudios cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IEstudioRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um filme existente
+            </summary>
+            <param name="id">Id do objeto a ser deletado</param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IJogoRepository.Cadastrar(senai.inlock.webApi.Domain.JogoDomain)">
+            <summary>
+            Cadastrar novo jogo
+            </summary>
+            <param name="novoJogo"></param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IJogoRepository.ListarTodos">
+            <summary>
+            Listar todos os jogos cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IJogoRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um filme existente
+            </summary>
+            <param name="id">Id do objeto a ser deletado</param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.ITipoUsuarioRepository.ListarTodos">
+            <summary>
+            Listar todos os tipos de usuarios cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
