@@ -16,7 +16,7 @@ namespace senai.inlock.webApi.Repositories
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querySelect, con))
-                {
+                {   
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Senha", senha);
 

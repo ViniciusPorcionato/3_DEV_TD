@@ -28,8 +28,9 @@ namespace webapi.inlock_codefirst.Repositories
                     {
                         return usuarioBuscado;
                     }
-                    return null;
                 }
+                return null!;
+
 
             }
             catch (Exception)

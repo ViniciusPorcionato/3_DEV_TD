@@ -33,22 +33,5 @@ namespace webapi.inlock_codefirst.Controllers
                 throw;
             }
         }
-
-        [HttpGet]
-        public IActionResult GetByEmailAndPassaword()
-        {
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
-
     }
 }
