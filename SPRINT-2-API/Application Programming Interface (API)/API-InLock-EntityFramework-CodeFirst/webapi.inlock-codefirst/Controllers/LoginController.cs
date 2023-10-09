@@ -23,7 +23,6 @@ namespace webapi.inlock_codefirst.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Login(LoginViewModel usuario)
         {
             try

@@ -3490,11 +3490,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\47423489824\\Desktop\\3_DEV_TD\\SPRINT-2-API\\Application Programming Interface (API)\\API-InLock-EntityFrameworkCode\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+      "projectUniqueName": "C:\\Users\\47423489824\\Desktop\\3_DEV_TD\\SPRINT-2-API\\Application Programming Interface (API)\\API-InLock-EntityFramework-DatabaseFirst\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
       "projectName": "webapi.inlock.tarde",
-      "projectPath": "C:\\Users\\47423489824\\Desktop\\3_DEV_TD\\SPRINT-2-API\\Application Programming Interface (API)\\API-InLock-EntityFrameworkCode\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+      "projectPath": "C:\\Users\\47423489824\\Desktop\\3_DEV_TD\\SPRINT-2-API\\Application Programming Interface (API)\\API-InLock-EntityFramework-DatabaseFirst\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
       "packagesPath": "C:\\Users\\47423489824\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\47423489824\\Desktop\\3_DEV_TD\\SPRINT-2-API\\Application Programming Interface (API)\\API-InLock-EntityFrameworkCode\\webapi.inlock.tarde\\obj\\",
+      "outputPath": "C:\\Users\\47423489824\\Desktop\\3_DEV_TD\\SPRINT-2-API\\Application Programming Interface (API)\\API-InLock-EntityFramework-DatabaseFirst\\webapi.inlock.tarde\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\47423489824\\AppData\\Roaming\\NuGet\\NuGet.Config",

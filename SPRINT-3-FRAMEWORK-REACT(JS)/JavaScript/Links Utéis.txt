@@ -1,0 +1,3 @@
+https://www.w3schools.com/js/js_events.asp
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Template_literals
