@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<style>
+.body
+{
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo{
+
+    background-color: blanchedalmond;
+    border-radius: 15px;
+    width: 300px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px black;
+    border: 2px solid black;
+}
+
+.form{
+
+    background-color: antiquewhite;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 15px 15px black;
+}
+
+.button{
+
+    background-color: gray;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 5px 5px black;
+    font-weight: bolder;
+
+}
+
+.label{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+    font-size: 20px;
+
+}
+
+.input{
+
+    border-radius: 5px;
+    border: none;
+    width: 150px;
+    height: 30px;
+    font-weight: bolder;
+    border: 1px solid gray;
+    text-align: center;
+
+}
+
+.resultado{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+}
+
+.select{
+
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+
+
+}
+
+
+</style>
+
+<body class="body">
+    <h1 class="titulo">Simple Calculator</h1>
+
+    <form onsubmit="calcular()" class="form">
+        <br>
+        <label class="label" for="numero1">Primeiro Número</label>
+        <br>
+        <input required class="input" type="number" id="numero1"  placeholder="Primeiro Número">
+        <br><br>
+
+        <label class="label" for="numero2">Segundo Número</label>
+        <br>
+        <input required class="input" type="number" id="numero2"  placeholder="Segundo Número">
+        <br><br>
+
+        <label class="label" for="resultado">Operação :</label>
+        <br>
+        <select class="select" name="operacao" id="operacao">
+            <option value="">Selecione</option>
+            <option value="+">Soma</option>
+            <option value="-">Subtração</option>
+            <option value="*">Multiplicação</option>
+            <option value="/">Divisão</option>
+        </select>
+        <br><br>
+
+        <p class="resultado">Resultado : <strong id="resultado">??</strong></p>
+
+        <button class="button" onclick="calcular()">Calcular</button>
+        <br>    
+
+    </form>
+
+
+<script src="./Scripts/funcoes.js"></script>
+
+</body>
+</html>
