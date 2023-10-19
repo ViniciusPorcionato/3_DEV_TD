@@ -1,5 +1,7 @@
 //reduce - reduzir o array em um único resultado (retorna apenas um valor)
 
+//função de retorno = Callback
+
 // = atribuição
 // == relacional / comparação  (valor)
 // === identico  (valor e tipo de dado)

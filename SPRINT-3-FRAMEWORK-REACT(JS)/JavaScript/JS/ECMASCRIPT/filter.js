@@ -1,4 +1,6 @@
-//filter - retorna um array apenas com elementos que atenderam a uma condição
+//filter - retorna um array(modificado) apenas com elementos que atenderam a uma condição
+
+//função de retorno = Callback
 
 const numeros = [1,2,5,10,300];
 
@@ -10,7 +12,7 @@ console.log(maior10);
 
 
 const comentarios = [
-    {comentario : "bla bla bla", exibe: true},
+    {comentario : "bom evento", exibe: true},
     {comentario : "evento foi uma merda", exibe: false},
     {comentario : "Ótimo evento !", exibe: true},
 ]
