@@ -1,0 +1,31 @@
+{
+    "contatos": [
+        {
+            "cep": "08320330",
+            "endereco": "Rua Clemente Falcão",
+            "bairro": "Parque São Rafael",
+            "cidade": "São Paulo",
+            "estado": "SP",
+            "id": 1
+        },
+        {
+            "cep": "08320330",
+            "endereco": "",
+            "bairro": "",
+            "cidade": "",
+            "estado": "",
+            "id": 2
+        },
+        {
+            "nome": "Vinicius",
+            "telefone": "11932032962",
+            "cep": "08320330",
+            "endereco": "Rua Clemente Falcão",
+            "numero": "426",
+            "bairro": "Parque São Rafael",
+            "cidade": "São Paulo",
+            "estado": "SP",
+            "id": 3
+        }
+    ]
+}
