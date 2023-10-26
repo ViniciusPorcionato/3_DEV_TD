@@ -1,0 +1,45 @@
+.button{
+    display: block;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid grey;
+    border: none;
+    margin-top: 20px;
+}
+
+.button:hover{
+    opacity: .8;
+}
+
+.button--warning{
+
+    background-color:darkgoldenrod;
+    color: white;
+    
+
+}
+
+.button--big{
+
+    width: 70%;
+    background-color: darkorange;
+
+}
+
+.button--danger{
+
+    color: darkred;
+
+}
+
+.button--success{
+
+    color: whitesmoke;
+    background-color: darkgreen;
+
+}

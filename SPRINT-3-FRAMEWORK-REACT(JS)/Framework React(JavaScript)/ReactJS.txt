@@ -1,0 +1,15 @@
+ReactJS
+
+SPA (Single Page Application) - é um tipo de aplicação web que interage com o usuário, atualiza dinamicamente o conteúdo(apenas uma página e o JS muda os conteúdos da aplicação)
+
+Componetização CSS - divisão do código em diferentes componentes menores (BEM - Block//(componente) Element//(componente filho) Modifier//(modificador))
+
+ReactJS & React Native - 
+React JS : é uma biblioteca JavaScript de código aberto (voltado para interfaces web)
+React Native : Criar aplicativos móveis nativos (voltado para mobile)
+
+Bibliotecas úteis para ReactJS - Ferramentas 
+
+ReactJs (Props) - Apenas para leitura
+
+
