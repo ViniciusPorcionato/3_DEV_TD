@@ -9,10 +9,12 @@ import TipoEventosPage from './Pages/TipoEventosPage/TipoEventosPage';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import TestePage from './Pages/TestePage/TestePage';
 
+import Header from './Components/Header/Header';
 
 const Rotas = () => {
     return (
             <BrowserRouter>
+            <Header />
                 <Routes>
                     <Route element={<HomePage/>} path='/' exact />
                     <Route element={<EventosPage/>} path='/eventos' />
