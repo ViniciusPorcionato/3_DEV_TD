@@ -39,10 +39,12 @@ const TestePage = () => {
 
             />
             <br />
+
             <Button
             tipoBotao="submit"
             textoBotao="Calcular"
             />
+            
             <p>Resultado: <strong>{total}</strong></p>
         </form>
         </>

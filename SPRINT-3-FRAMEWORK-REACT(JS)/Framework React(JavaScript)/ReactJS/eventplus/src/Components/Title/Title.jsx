@@ -5,9 +5,12 @@ import './Title.css';
 
 const Title = () => {
     return (
-        <div>
-            <h1 className='Title'>Titulo</h1>
-        </div>
+            <h1 className={`Title ${className}`} style={{ color : color}}>
+            
+            <hr 
+            className='Title'
+            />
+            </h1>
     );
 };
 
