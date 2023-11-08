@@ -3,15 +3,16 @@ import React from 'react';
 import './Title.css';
 
 
-const Title = () => {
+const Title = ({ titleText, additionalClass = "", color = "" }) => {
     return (
-            <h1 className={`Title ${className}`} style={{ color : color}}>
-            
-            <hr 
-            className='Title'
-            />
-            </h1>
+        <h1
+            className={`title ${additionalClass}`}
+            style={{ color: color }}
+        >
+            {titleText}
+            <hr className='title__underscore' style={{ borderColor: color }} />
+        </h1>
     );
 };
 
-export default Titulo;
+export default Title;
