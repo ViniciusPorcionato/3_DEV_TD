@@ -1,7 +1,7 @@
 import React from 'react';
 import './NextEvent.css';
 
-const NextEvent = ({title, description, eventDate}) => {
+const NextEvent = ({title, description, eventDate, idEvento}) => {
 
     function conectar(idEvento) {
         alert(`Conectando ao evento : ${idEvento}`)
