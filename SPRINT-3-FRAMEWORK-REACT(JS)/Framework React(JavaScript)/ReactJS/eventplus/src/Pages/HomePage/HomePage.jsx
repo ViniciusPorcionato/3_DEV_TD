@@ -8,24 +8,25 @@ import NextEvent from "../../Components/NextEvent/NextEvent";
 import Container from "../../Components/Container/Container";
 import Title from "../../Components/Title/Title";
 import axios from "axios";
+import api from "../../Services/Service";
 
 const HomePage = () => {
 
-  //fake mock - API mocada
   const [nextEvents, setNextEvents] = useState([]);
 
   useEffect(() => {
     //chamar api em uma funçãi assincrona
     async function getNextEvents() {
       try {
-        const promise = await axios.get("http://localhost:5000/api/Evento/ListarProximos");
+        const promise = await api.get("/Evento/ListarProximos");
         setNextEvents(promise.data);
-        getNextEvents();
       } catch (error) {
-        
+        alert('Deu ruim na API')
       }
     }
+    getNextEvents();
   }, [])
+
 
   return (
     <MainContent>
@@ -42,10 +43,10 @@ const HomePage = () => {
             nextEvents.map((e) => {
               return(
                 <NextEvent
-                  title={e.title}
+                  title={e.nomeEvento}
                   description={e.descricao}
-                  eventDate={e.data}
-                  idEvento={e.id}
+                  eventDate={e.dataEvento}
+                  idEvento={e.idEvento}
                 />
               );
             })
