@@ -15,9 +15,10 @@ const HomePage = () => {
   const [nextEvents, setNextEvents] = useState([]);
 
   useEffect(() => {
-    //chamar api em uma funçãi assincrona
+    //chamar api em uma funçãa assincrona
     async function getNextEvents() {
       try {
+<<<<<<< HEAD
         const promise = await api.get("/Evento/ListarProximos");
         setNextEvents(promise.data);
       } catch (error) {
@@ -26,6 +27,20 @@ const HomePage = () => {
     }
     getNextEvents();
   }, [])
+=======
+        const promise = await axios.get("http://localhost:5000/api/Evento/ListarProximos");
+        const dados = await promise.data;
+        setNextEvents(dados);//atualiza o state
+      } catch (error) {
+        alert("Deu ruim na API !")
+      }
+    }
+
+    getNextEvents();//chama a função
+
+  }, []);
+
+>>>>>>> 78b9c4ea1230c94f41e1a15cf3dd05d5e1412ebc
 
 
   return (
