@@ -29,29 +29,23 @@ manipulationFunction
     );
 }
 
-export const Button = ({
-type,
-id,
-value,
-required,
-additionalClass,
-name,
-placeholder,
-manipulationFunction
-
+export const Button = ({ 
+    textButton, 
+    id, 
+    name, 
+    type, 
+    additionalClass = "",
+    manipulationFunction 
 }) => {
+
     return(
-        <input 
+        <button 
         type={type}
-        id={id}
         name={name}
-        value={value}
-        required={required}
-        className={`input-component ${additionalClass}`}
-        placeholder={placeholder}
-        onChange={manipulationFunction}
-        autoComplete='off'
-        
-        />
+        id={id}
+        className={`button-component ${additionalClass}`}
+        onClick={manipulationFunction}
+        >{textButton}
+        </button>
     );
 }
