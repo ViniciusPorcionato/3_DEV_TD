@@ -7,6 +7,7 @@ import './TipoEventosPage.css';
 import Container from '../../Components/Container/Container';
 import { Button, Input  } from "../../Components/FormComponents/FormComponents";
 import api from "../../Services/Service";
+import TableTp from './TableTp/TableTp';
 
 
 
@@ -14,6 +15,11 @@ const TipoEventosPage = () => {
 
     const [frmEdit, setFrmEdit] = useState(false);
     const [titulo, setTitulo] = useState("");
+
+    const[tipoEventos, setTipoEventos] = useState([
+        {idTipoEvento: "123", titulo: "Teste1"},
+        {idTipoEvento: "456", titulo: "Teste2"}
+    ]);
 
     async function handleSubmit(e) {
         //parar o submit do formulário
@@ -34,12 +40,26 @@ const TipoEventosPage = () => {
             console.log(error);
         }
     }
+
+    //EDITAR CADASTRO
     function handleUpdate() {
         alert('Bora atualizar')
+    }
+    function editActionAbort() {
+        alert('Cancelar a tela de edição de dados')
+    }
+
+    function showUpdateForm() {
+        alert('Mostrando a tela de Update')
+    }
+
+    function handleDelete() {
+        alert('Bora la apagar na API')
     }
 
     return (
         <MainContent>
+            {/* Cadastro de tipo de eventos */}
             <section className='cadastro-evento-section'>
                 <Container>
                     <div className='cadastro-evento__box'>
@@ -84,6 +104,19 @@ const TipoEventosPage = () => {
                     </div>
                 </Container>
             </section>
+
+            {/* Listagem de tipo de eventos */}
+            <section className='lista-eventos-section'>
+                <Container>
+                    <Title titleText={"Lista de Tipo de Eventos"} color="white"/>
+                    <TableTp
+                    dados={tipoEventos}
+                    fnUpdate={showUpdateForm}
+                    fnDelete={handleDelete}
+                    />
+                </Container>
+            </section>
+            
         </MainContent>
     );
 };
