@@ -22,11 +22,11 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
         </thead>
 
         <tbody>
-        {dados.map((e) => {
+        {dados.map((tp) => {
             return (
             <tr className="table-data__head-row">
                 <td className="table-data__data table-data__data--big">
-                {e.titulo}
+                {tp.titulo}
                 </td>
                 
                 <td className="table-data__data table-data__data--little">
@@ -35,7 +35,7 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
                     src={editPen}
                     alt=""
                     onClick={() => {
-                    fnUpdate();
+                    fnUpdate(tp.idTipoEvento);
                     }}
                 />
                 </td>
@@ -46,7 +46,7 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
                     src={trashDelete}
                     alt=""
                     onClick={() => {
-                    fnDelete();
+                    fnDelete(tp.idTipoEvento);
                     }}
                 />
                 </td>
