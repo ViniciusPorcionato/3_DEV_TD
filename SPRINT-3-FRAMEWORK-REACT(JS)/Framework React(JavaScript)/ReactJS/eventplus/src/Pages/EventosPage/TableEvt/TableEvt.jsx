@@ -1,7 +1,7 @@
 import React from "react";
 import editPen from "../../../Assets/images/edit-pen.svg";
 import trashDelete from "../../../Assets/images/trash-delete.svg";
-import {dateFormatDbToView} from '../../../Utils/stringFunction'
+import {dateFormatDbToView} from '../../../Utils/stringFunction';
 
 import "./TableEvt.css";
 
