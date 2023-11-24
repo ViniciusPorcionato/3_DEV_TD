@@ -51,7 +51,7 @@ export const Button = ({
 }
 
 export const Select = ({
-    options = [],
+    dados = [],
     id,
     name,
     required,
@@ -69,9 +69,9 @@ export const Select = ({
         id={id}
         >
             <option value="">Selecione</option>
-            {options.map((opt) => {
+            {dados.map((opt) => {
                 return(
-                    <option key={opt.idTiposEvento} value={opt.idTiposEvento}>{opt.titulo}</option>
+                    <option key={opt.idTipoEvento} value={opt.idTipoEvento}>{opt.titulo}</option>
                 );
             })}
         </select>

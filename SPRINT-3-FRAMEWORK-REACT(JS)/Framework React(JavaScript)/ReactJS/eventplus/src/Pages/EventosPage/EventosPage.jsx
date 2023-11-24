@@ -10,6 +10,7 @@ import api from "../../Services/Service";
 import TableEvt from './TableEvt/TableEvt';
 import Notification from '../../Components/Notification/Notification';
 import Spinner from '../../Components/Spinner/Spinner';
+import {dateFormatToView} from '../../Utils/stringFunction'
 
 const EventosPage = () => {
 
@@ -19,12 +20,12 @@ const EventosPage = () => {
     const[idEvento, setIdEvento] = useState("");
     const[nomeEvento, setNomeEvento] = useState("");
     const[descricao, setDescricao] = useState("");
-    const[tipoEvento, setTipoEvento] = useState([]);//fazer o select
 
+    const[tipoEvento, setTipoEvento] = useState([]);
     const[selectTipoEventos, setSelectTipoEventos] = useState("");
 
     const[dataEvento, setDataEvento] = useState("");
-    const[instituicao, setInstituicao] = useState("");
+    const[idInstituicao, setIdInstituicao] = useState("");
     const[eventos, setEventos]= useState([]);
 
 
@@ -37,13 +38,13 @@ const EventosPage = () => {
         setShowSpinner(true);
         try {
     
-            const promise = await api.get("/Evento")
+            const promise = await api.get("/Evento/")
             const promiseInstituicao = await api.get("/Instituicao")
             const promiseTiposEventos = await api.get("/TiposEvento")
         
             setEventos(promise.data)
             setTipoEvento(promiseTiposEventos.data)
-            setInstituicao(promiseInstituicao.data[1].idInstituicao)
+            setIdInstituicao(promiseInstituicao.data[1].idInstituicao)
     
         } catch (error) {
             alert("Deu Ruim na API !!!")
@@ -62,13 +63,16 @@ const EventosPage = () => {
         e.preventDefault();
 
         try {
-            const retorno = await api.post('/Evento',{
+            const retorno = await api.post('/Evento/',
+            {
                 nomeEvento : nomeEvento,
                 descricao : descricao,
-                idTipoEvento : tipoEvento,
+                idTipoEvento : selectTipoEventos,
                 dataEvento : dataEvento,
-                idInstituicao : instituicao
-            });
+                idInstituicao : idInstituicao
+            }
+            );
+            console.log(retorno.data);
 
             setNotifyUser({
                 titleNote: "Sucesso",
@@ -79,13 +83,15 @@ const EventosPage = () => {
                 showMessage: true,
             });
 
+            
+            const retornoGet = await api.get('/Evento/')
+            setEventos(retornoGet.data)
+            
             setNomeEvento("");
             setDescricao("");
-            setTipoEvento("");
+            // setTipoEvento("");
             setDataEvento("");
-
-            const retornoGet = await api.get('/Evento')
-            setEventos(retornoGet.data)
+            // setSelectTipoEventos("");
 
         } catch (error) {
 
@@ -94,7 +100,7 @@ const EventosPage = () => {
                 textNote: `Deu ruim na API!`,
                 imgIcon: "danger",
                 imgAlt:
-                "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                "Imagem de ilustração de erro.",
                 showMessage: true,
             });
         }
@@ -108,9 +114,9 @@ const EventosPage = () => {
             const retorno = await api.put('/Evento/' + idEvento, {
                 nomeEvento : nomeEvento,
                 descricao : descricao,
-                idTipoEvento : tipoEvento,
+                idTipoEvento : selectTipoEventos,
                 dataEvento : dataEvento,
-                idInstituicao : instituicao
+                idInstituicao : idInstituicao
             })
 
             const retornoGet = await api.get('/Evento/');
@@ -135,7 +141,7 @@ const EventosPage = () => {
                 textNote: `Erro na atualização!`,
                 imgIcon: "danger",
                 imgAlt:
-                "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                "Imagem de ilustração de erro. ",
                 showMessage: true,
             });
         }
@@ -145,13 +151,13 @@ const EventosPage = () => {
         setFrmEdit(false);
         setNomeEvento("");
         setDescricao("");
-        setTipoEvento("");
+        // setTipoEvento("");
         setDataEvento("");
+        // setSelectTipoEventos("");
         setIdEvento(null);
     }
     
-
-
+    
     async function showUpdateForm(idElemento) {
         
         setFrmEdit(true)
@@ -163,8 +169,9 @@ const EventosPage = () => {
             setNomeEvento(retornoGet.data.nomeEvento)
             setDescricao(retornoGet.data.descricao)
             setDataEvento(retornoGet.data.dataEvento)
-            setTipoEvento(retornoGet.data.idTipoEvento)
+            // setTipoEvento(retornoGet.data.idTipoEvento)
             setIdEvento(retornoGet.data.idEvento)
+            // setSelectTipoEventos(retornoGet.data.idTipoEvento)
 
         } catch (error) {
             setNotifyUser({
@@ -172,7 +179,7 @@ const EventosPage = () => {
                 textNote: `Não foi possivel mostrar a tela de edição. Tente novamente !!`,
                 imgIcon: "warning",
                 imgAlt:
-                "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                "Imagem de ilustração de aviso.",
                 showMessage: true,
             });
         }
@@ -201,7 +208,7 @@ const EventosPage = () => {
                 textNote: `Erro ao deletar!`,
                 imgIcon: "danger",
                 imgAlt:
-                "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                "Imagem de ilustração de erro.",
                 showMessage: true,
             });
         }
@@ -257,14 +264,14 @@ const EventosPage = () => {
 
 
                                     <Select
-                                    options={tipoEvento}
+                                    dados={tipoEvento}
                                     id={"tipoEvento"}
                                     name={"tipoEvento"}
                                     required={"required"}
-                                    defaultValue={tipoEvento}
                                     manipulationFunction={
                                         (e) => {
-                                            setTipoEvento(e.target.value)
+                                            console.log(e.target.value);
+                                            setSelectTipoEventos(e.target.value)
                                         }
                                     }
                                     />
@@ -326,14 +333,14 @@ const EventosPage = () => {
                                     />
 
                                     <Select
+                                    dados={tipoEvento}
                                     id={"tipoEvento"}
                                     name={"tipoEvento"}
-                                    placeholder={"Tipo Evento"}
                                     required={"required"}
-                                    value={tipoEvento}
                                     manipulationFunction={
                                         (e) => {
-                                            setTipoEvento(e.target.value)
+                                            console.log(e.target.value);
+                                            setSelectTipoEventos(e.target.value)
                                         }
                                     }
                                     />
@@ -344,7 +351,7 @@ const EventosPage = () => {
                                     type={"date"}
                                     placeholder={"dd/mm/aaaa"}
                                     required={"required"}
-                                    value={dataEvento}
+                                    value={dateFormatToView(dataEvento)}
                                     manipulationFunction={
                                         (e) => {
                                             setDataEvento(e.target.value)
