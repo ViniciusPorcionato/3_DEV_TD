@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./HomePage.css";
 import Banner from "../../Components/Banner/Banner";
 import VisionSection from "../../Components/VisionSection/VisionSection";
@@ -9,8 +9,11 @@ import Container from "../../Components/Container/Container";
 import Title from "../../Components/Title/Title";
 import axios from "axios";
 import api from "../../Services/Service";
+import { UserContext } from "../../context/AuthContext";
 
 const HomePage = () => {
+
+  const{userData} = useContext(UserContext)
 
   const [nextEvents, setNextEvents] = useState([]);
 

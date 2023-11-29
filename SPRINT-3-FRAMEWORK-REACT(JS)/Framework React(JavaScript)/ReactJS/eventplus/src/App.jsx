@@ -1,9 +1,16 @@
 import './App.css';
 import Rotas from './Route.js';
+import {UserContext} from './context/AuthContext'
+import { useState } from 'react';
 
 function App() {
+
+  const [userData, setUserData] =useState(UserContext)
+
   return (
-    <Rotas />
+    <UserContext.Provider value={{userData, setUserData}}>
+      <Rotas />
+    </UserContext.Provider>
   );
 }
 
