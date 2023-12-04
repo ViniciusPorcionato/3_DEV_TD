@@ -5,7 +5,7 @@ import Container from '../../Components/Container/Container';
 import Title from '../../Components/Title/Title';
 import ImageIllustrator from '../../Components/ImageIllustrator/ImageIllustrator';
 import eventImage from '../../Assets/images/evento.svg'
-import { Input, Button, Select } from '../../Components/FormComponents/FormComponents';
+import { Input, Button, SelectEvt } from '../../Components/FormComponents/FormComponents';
 import api from "../../Services/Service";
 import TableEvt from './TableEvt/TableEvt';
 import Notification from '../../Components/Notification/Notification';
@@ -263,7 +263,7 @@ const EventosPage = () => {
                                     />
 
 
-                                    <Select
+                                    <SelectEvt
                                     dados={tipoEvento}
                                     id={"tipoEvento"}
                                     name={"tipoEvento"}
@@ -332,7 +332,7 @@ const EventosPage = () => {
                                     }
                                     />
 
-                                    <Select
+                                    <SelectEvt
                                     dados={tipoEvento}
                                     id={"tipoEvento"}
                                     name={"tipoEvento"}
