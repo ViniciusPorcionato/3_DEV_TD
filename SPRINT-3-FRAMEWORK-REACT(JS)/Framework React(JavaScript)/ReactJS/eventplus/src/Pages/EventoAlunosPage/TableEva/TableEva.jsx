@@ -48,7 +48,7 @@ return (
                 onClick={fnShowModal}
                 />
 
-                <Toggle manipulationFunction={fnConnect} />
+                <Toggle manipulationFunction={fnConnect} toggleActive={e.situacao} />
             </td>
             </tr>
         );

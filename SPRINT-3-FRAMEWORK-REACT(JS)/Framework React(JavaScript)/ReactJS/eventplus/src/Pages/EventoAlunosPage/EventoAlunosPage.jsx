@@ -39,7 +39,15 @@ useEffect(() => {
             if (tipoEvento === "1") {
 
                 const promiseEvento = await api.get('/Evento')
+                const promisePresenca = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
+
+
+                const dadosMarcados = verificaPresenca(promiseEvento.data , promisePresenca.data);
+                console.log("DADOS MARCADOS");
+                console.log(dadosMarcados);
+
                 setEventos(promiseEvento.data);
+
             } else{
 
                 let arrEventos = [];
@@ -47,14 +55,13 @@ useEffect(() => {
                 const promisePresenca = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
 
                 promisePresenca.data.forEach((element) => {
-                    arrEventos.push(element.evento)
+                    arrEventos.push({...element.evento, situacao : element.situacao})
                 })
 
                 setEventos(arrEventos);
             }
 
         } catch (error) {
-            alert("Deu Ruim na API !!!")
             console.log(error);
         }
         setShowSpinner(false);
@@ -63,7 +70,23 @@ useEffect(() => {
 
     loadEventsType();
 
-}, [tipoEvento]);
+}, [tipoEvento, userData.userId]);
+
+
+const verificaPresenca = (arrAllEvents, eventUser) => {
+    //verifica se o aluno está participando do evento atual (x)
+    for (let x = 0 ; x < arrAllEvents.length; x++) {//para cada evento (todos)
+        
+        for (let i = 0; i < eventUser.length; i++) { //verifica em meus eventos
+            if (arrAllEvents[x].idEvento === eventUser[i].idEvento) {
+                arrAllEvents[x].situacao = true;
+                break;
+            }
+        }
+    }
+
+    return arrAllEvents;
+}
 
   // toggle meus eventos ou todos os eventos
 function myEvents(tpEvent) {
@@ -89,7 +112,7 @@ function handleConnect() {
     <>
         <MainContent>
             <Container>
-            <Title titleText={"Eventos"} className="custom-title" />
+            <Title titleText={"Eventos"} additionalClass="custom-title" />
 
             <Select
             id="id-tipo-evento"

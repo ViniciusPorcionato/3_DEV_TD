@@ -1,5 +1,5 @@
 import React from "react";
-import trashDelete from "../../Assets/images/trash-delete.svg";
+import trashDelete from "../../Assets/images/trash-delete-red.png";
 
 import { Button, Input } from "../FormComponents/FormComponents";
 import "./Modal.css";
