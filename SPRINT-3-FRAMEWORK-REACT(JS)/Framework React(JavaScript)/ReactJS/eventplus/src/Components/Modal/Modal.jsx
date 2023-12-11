@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import trashDelete from "../../Assets/images/trash-delete-red.png";
 
 import { Button, Input } from "../FormComponents/FormComponents";
@@ -9,10 +9,18 @@ const Modal = ({
     comentaryText = "Não informado. Não informado. Não informado.",
     userId = null,
     showHideModal = false,
+    fnGet = null,
+    fnPost = null,
     fnDelete = null,
     fnNewCommentary = null
 
 }) => {
+
+    useEffect(() => {
+        fnGet();
+    },[])
+
+    const[descricao, setDescricao] = useState("");
 
     return (
     <div className="modal">
@@ -40,13 +48,17 @@ const Modal = ({
         <Input
             placeholder="Escreva seu comentário..."
             additionalClass="comentary__entry"
+            manipulationFunction={(e) => {
+                setDescricao(e.target.value)
+            }}
         />
 
         <Button
             textButton="Comentar"
             additionalClass="comentary__button"
-            manipulationFunction={fnNewCommentary}
+            manipulationFunction={fnPost(descricao)}
         />
+        
         </article>
     </div>
     );

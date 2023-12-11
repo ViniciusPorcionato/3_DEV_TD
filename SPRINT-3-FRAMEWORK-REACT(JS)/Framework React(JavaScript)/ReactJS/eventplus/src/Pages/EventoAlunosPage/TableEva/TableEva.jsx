@@ -48,7 +48,16 @@ return (
                 onClick={fnShowModal}
                 />
 
-                <Toggle manipulationFunction={fnConnect} toggleActive={e.situacao} />
+                <Toggle manipulationFunction={() => {
+                    fnConnect(
+                        e.idEvento, 
+                        e.situacao, 
+                        e.idPresencaEvento
+                        )
+
+                }} 
+                toggleActive={e.situacao} />
+
             </td>
             </tr>
         );

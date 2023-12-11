@@ -31,46 +31,50 @@ const EventosAlunoPage = () => {
 
 useEffect(() => {
     
-    async function loadEventsType(){
-        setShowSpinner(true);
-
-        try {
-            
-            if (tipoEvento === "1") {
-
-                const promiseEvento = await api.get('/Evento')
-                const promisePresenca = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
-
-
-                const dadosMarcados = verificaPresenca(promiseEvento.data , promisePresenca.data);
-                console.log("DADOS MARCADOS");
-                console.log(dadosMarcados);
-
-                setEventos(promiseEvento.data);
-
-            } else{
-
-                let arrEventos = [];
-
-                const promisePresenca = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
-
-                promisePresenca.data.forEach((element) => {
-                    arrEventos.push({...element.evento, situacao : element.situacao})
-                })
-
-                setEventos(arrEventos);
-            }
-
-        } catch (error) {
-            console.log(error);
-        }
-        setShowSpinner(false);
-
-    }
-
     loadEventsType();
 
 }, [tipoEvento, userData.userId]);
+
+async function loadEventsType(){
+    setShowSpinner(true);
+
+    try {
+        
+        if (tipoEvento === "1") {
+
+            const promiseEvento = await api.get('/Evento')
+            const promisePresenca = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
+
+
+            const dadosMarcados = verificaPresenca(promiseEvento.data , promisePresenca.data);
+            console.log("DADOS MARCADOS");
+            console.log(dadosMarcados);
+
+            setEventos(promiseEvento.data);
+
+        } else{
+
+            let arrEventos = [];
+
+            const promisePresenca = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
+
+            promisePresenca.data.forEach((element) => {
+                arrEventos.push({
+                    ...element.evento, 
+                    situacao : element.situacao,
+                    idPresencaEvento : element.idPresencaEvento
+                });
+            })
+
+            setEventos(arrEventos);
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+    setShowSpinner(false);
+
+}
 
 
 const verificaPresenca = (arrAllEvents, eventUser) => {
@@ -80,6 +84,7 @@ const verificaPresenca = (arrAllEvents, eventUser) => {
         for (let i = 0; i < eventUser.length; i++) { //verifica em meus eventos
             if (arrAllEvents[x].idEvento === eventUser[i].idEvento) {
                 arrAllEvents[x].situacao = true;
+                arrAllEvents[x].idPresencaEvento = eventUser[i].idPresencaEvento;
                 break;
             }
         }
@@ -93,20 +98,64 @@ function myEvents(tpEvent) {
     setTipoEvento(tpEvent);
 }
 
-async function loadMyComentary(idComentary) {
-    return "????";
-}
 
 const showHideModal = () => {
     setShowModal(showModal ? false : true);
 };
 
-const commentaryRemove = () => {
+//ler comentário - get
+async function loadMyComentary(idComentary) {
+    return "????";
+}
+
+//deletar comentario - delete
+const commentaryRemove = async () => {
     alert("Remover o comentário");
 };
 
-function handleConnect() {
-    alert("Desenvolver a função conectar evento");
+//Cadastrar um comentário - post
+//continuar
+async function postMyComentary(descricao, exibe = true){
+
+    const promisePostComentary = await api.post('/ComentariosEvento',{
+        descricao:descricao,
+        exibe : exibe,
+        idUsuario : userData.idUsuario,
+        // idEvento : ???????
+    })
+
+}
+
+
+
+async function handleConnect(idEvent, connect = false, idPresencaEvento = null) {
+    if (!connect) {
+        try {
+            const promise = await api.post('/PresencasEvento', {
+                situacao: true,
+                idUsuario : userData.userId,
+                idEvento : idEvent
+            });
+
+            if (promise.status === 201) {
+                loadEventsType();
+                alert("Presença Confirmada ! Parabéns")
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+        return;
+    }
+    
+    //fazer o delete
+    const promiseDelete = await api.delete('/PresencasEvento/' + idPresencaEvento)
+    if (promiseDelete.status === 204) {
+        loadEventsType();
+        alert('Desconectado do Evento')
+        
+    }
+
 }
     return (
     <>
@@ -143,6 +192,10 @@ function handleConnect() {
             userId={userData.userId}
             showHideModal={showHideModal}
             fnDelete={commentaryRemove}
+            fnPost={postMyComentary}
+            fnGet={() => {
+                loadMyComentary(userData.idUsuario)
+            }}
         />
         ) : null}
     </>
