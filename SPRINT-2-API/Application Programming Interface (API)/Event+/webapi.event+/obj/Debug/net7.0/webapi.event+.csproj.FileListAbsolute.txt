@@ -1039,3 +1039,6 @@ C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Inter
 C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Interface (API)\Event+\webapi.event+\obj\Debug\net7.0\webapi.event+.pdb
 C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Interface (API)\Event+\webapi.event+\obj\Debug\net7.0\webapi.event+.genruntimeconfig.cache
 C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Interface (API)\Event+\webapi.event+\obj\Debug\net7.0\ref\webapi.event+.dll
+C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Interface (API)\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.Azure.CognitiveServices.ContentModerator.dll
+C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Interface (API)\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.Rest.ClientRuntime.dll
+C:\Users\47423489824\Desktop\3_DEV_TD\SPRINT-2-API\Application Programming Interface (API)\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.Rest.ClientRuntime.Azure.dll
