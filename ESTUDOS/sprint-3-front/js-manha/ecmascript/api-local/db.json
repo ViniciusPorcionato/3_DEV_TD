@@ -1,0 +1,99 @@
+{
+  "contatos": [
+    {
+      "nome": "Eduardo",
+      "email": "edu@edu",
+      "cep": "3",
+      "endereco": "Rua dos Empresários",
+      "numero": "555",
+      "cidade": "São Paulo",
+      "estado": "sp",
+      "id": 3
+    },
+    {
+      "nome": "Eduardo Mendes da Costa",
+      "email": "mendes.educosta@gmail.com",
+      "cep": "07170350",
+      "endereco": "Avenida Papa João Paulo I",
+      "numero": "10",
+      "cidade": "Guarulhos",
+      "estado": "SP",
+      "id": 4
+    }
+  ],
+  "myceps": [
+    {
+      "id": 1,
+      "cep": "07170350",
+      "logradouro": "Rua lá de Casa",
+      "localidade": "Guarulhos",
+      "uf": "sp"
+    },
+    {
+      "id": 2,
+      "cep": "07181230",
+      "logradouro": "Rua do Trabalho",
+      "localidade": "São Caetano do Sul",
+      "uf": "sp"
+    },
+    {
+      "id": 3,
+      "cep": "01234567",
+      "logradouro": "Rua dos Empresários",
+      "localidade": "São Paulo",
+      "uf": "sp"
+    },
+    {
+      "id": 4,
+      "cep": "87654321",
+      "logradouro": "Rua dos Empregados",
+      "localidade": "Mogi das Cruzes",
+      "uf": "sp"
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "nome": "qwer",
+      "email": "rw@asd",
+      "cep": "2",
+      "endereco": "Rua do Trabalho",
+      "numero": "2",
+      "cidade": "São Caetano do Sul",
+      "estado": "sp",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    }
+  ],
+  "TipoEventos": [
+    {
+      "id": 1,
+      "titulo": "SQL Server",
+      "instituicao": "SENAI",
+      "dataEvento": "05/11/2023"
+    },
+    {
+      "titulo": "JavaScript",
+      "instituicao": "SENAI",
+      "dataEvento": "06/11/2023",
+      "id": 2
+    },
+    {
+      "titulo": "JavaScript",
+      "instituicao": "SENAI",
+      "dataEvento": "06/11/2023",
+      "id": 3
+    }
+  ]
+}
